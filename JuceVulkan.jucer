@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="Gm6PIz" name="JuceVulkan" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="Ik8BSu" name="JuceVulkan">
+    <GROUP id="{6A62F45B-E334-D46D-167A-22EFA6839941}" name="Source">
+      <GROUP id="{9890DB59-DA88-6B1C-9798-73497655E561}" name="JVK">
+        <GROUP id="{65A6F539-DCCE-BB83-FCE7-89E21494164D}" name="Wrapper">
+          <FILE id="U0h7fy" name="SwapChain.cpp" compile="1" resource="0" file="Source/JVK/Wrapper/SwapChain.cpp"/>
+          <FILE id="IePuqU" name="SwapChain.h" compile="0" resource="0" file="Source/JVK/Wrapper/SwapChain.h"/>
+        </GROUP>
+        <GROUP id="{B5BF0DAA-C072-111A-E009-D14063DFB146}" name="MacOS">
+          <FILE id="hrKDPO" name="NSViewGenerator.h" compile="0" resource="0"
+                file="Source/JVK/MacOS/NSViewGenerator.h"/>
+          <FILE id="zj01qA" name="NSViewGenerator.mm" compile="1" resource="0"
+                file="Source/JVK/MacOS/NSViewGenerator.mm"/>
+          <FILE id="R5RVJ4" name="VulkanNSViewComponent.cpp" compile="1" resource="0"
+                file="Source/JVK/MacOS/VulkanNSViewComponent.cpp"/>
+          <FILE id="wvUdsi" name="VulkanNSViewComponent.h" compile="0" resource="0"
+                file="Source/JVK/MacOS/VulkanNSViewComponent.h"/>
+        </GROUP>
+        <GROUP id="{3402F529-7E1A-2FB7-025D-2D71EEDDC981}" name="Windows"/>
+        <FILE id="d5SD2y" name="NSViewGenerator.h" compile="0" resource="0"
+              file="Source/JVK/NSViewGenerator.h"/>
+        <FILE id="FCjw8X" name="VulkanComponent.cpp" compile="1" resource="0"
+              file="Source/JVK/VulkanComponent.cpp"/>
+        <FILE id="GeSa5C" name="VulkanComponent.h" compile="0" resource="0"
+              file="Source/JVK/VulkanComponent.h"/>
+        <FILE id="LOQ9ba" name="VulkanInstance.cpp" compile="1" resource="0"
+              file="Source/JVK/VulkanInstance.cpp"/>
+        <FILE id="J98kuz" name="VulkanInstance.h" compile="0" resource="0"
+              file="Source/JVK/VulkanInstance.h"/>
+      </GROUP>
+      <GROUP id="{11870FC5-2FA3-DB22-DDCB-A91AD7911B9E}" name="Shaders">
+        <FILE id="t5wWku" name="basic.frag" compile="0" resource="1" file="Source/Shaders/basic.frag"/>
+        <FILE id="NVsT1Q" name="basic.vert" compile="0" resource="1" file="Source/Shaders/basic.vert"/>
+      </GROUP>
+      <FILE id="fkFomT" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="PTaGN2" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="Qa7TfF" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="XRPzm6" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="XUy1La" name="TriangleDemo.h" compile="0" resource="0" file="Source/TriangleDemo.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraDefs="VK_USE_PLATFORM_MACOS_MVK"
+               frameworkSearchPaths="/Users/gavin/VulkanSDK/1.3.261.1/macOS/Frameworks"
+               embeddedFrameworks="/Users/gavin/VulkanSDK/1.3.261.1/macOS/Frameworks/vulkan.framework"
+               externalLibraries="MoltenVK" prebuildCommand="cp /Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS/libMoltenVK.dylib /Users/gavin/Documents/GitHub/JuceVulkan/Builds/MacOSX/build/Debug">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="JuceVulkan" headerPath="/Users/gavin/VulkanSDK/1.3.261.1/macOS/include"
+                       libraryPath="/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="JuceVulkan" headerPath="/Users/gavin/VulkanSDK/1.3.261.1/macOS/include"
+                       libraryPath="/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
