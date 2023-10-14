@@ -9,7 +9,7 @@
 */
 
 #pragma once
-namespace jvk
+namespace jvk::core::macos
 {
 
 class NSViewGenerator
@@ -26,4 +26,4 @@ private:
     void* ptr;
 };
 
-} // jvk
+} // jvk::core::macos

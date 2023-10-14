@@ -13,7 +13,7 @@
 #include <vulkan/vulkan.h>
 #include <glm/glm.hpp>
 
-namespace jvk
+namespace jvk::core
 {
 
 static inline uint32_t findMemoryType(VkPhysicalDevice physicalDevice, uint32_t typeFilter, VkMemoryPropertyFlags properties)
@@ -88,5 +88,4 @@ private:
     std::vector<VkFramebuffer> frameBuffers;
 };
 
-
-} // jvk
+} // jvk::core

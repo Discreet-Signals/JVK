@@ -10,7 +10,7 @@
 
 #include "VulkanNSViewComponent.h"
 
-namespace jvk
+namespace jvk::core::macos
 {
 
 std::vector<const char*> VulkanNSViewComponent::getExtensions()
@@ -46,4 +46,4 @@ void VulkanNSViewComponent::resized()
     jvkResized();
 }
 
-} // jvk
+} // jvk::core::macos

@@ -4,32 +4,46 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
   <MAINGROUP id="Ik8BSu" name="JuceVulkan">
     <GROUP id="{6A62F45B-E334-D46D-167A-22EFA6839941}" name="Source">
-      <GROUP id="{9890DB59-DA88-6B1C-9798-73497655E561}" name="JVK">
-        <GROUP id="{65A6F539-DCCE-BB83-FCE7-89E21494164D}" name="Wrapper">
-          <FILE id="U0h7fy" name="SwapChain.cpp" compile="1" resource="0" file="Source/JVK/Wrapper/SwapChain.cpp"/>
-          <FILE id="IePuqU" name="SwapChain.h" compile="0" resource="0" file="Source/JVK/Wrapper/SwapChain.h"/>
+      <GROUP id="{E605B08E-E8C2-4F22-BAF2-15DF5345D3D6}" name="JVK">
+        <GROUP id="{6692841E-0669-0EC4-713B-EC5761F56D02}" name="Core">
+          <GROUP id="{9BC5D79A-FDDE-4C39-530A-DB109B928E4F}" name="MacOS">
+            <FILE id="HWmLaB" name="NSViewGenerator.h" compile="0" resource="0"
+                  file="Source/JVK/Core/MacOS/NSViewGenerator.h"/>
+            <FILE id="OZs3pD" name="NSViewGenerator.mm" compile="1" resource="0"
+                  file="Source/JVK/Core/MacOS/NSViewGenerator.mm"/>
+            <FILE id="YGl2d0" name="VulkanNSViewComponent.cpp" compile="1" resource="0"
+                  file="Source/JVK/Core/MacOS/VulkanNSViewComponent.cpp"/>
+            <FILE id="zYNJmz" name="VulkanNSViewComponent.h" compile="0" resource="0"
+                  file="Source/JVK/Core/MacOS/VulkanNSViewComponent.h"/>
+          </GROUP>
+          <GROUP id="{B08F4538-CC85-195D-C472-6DF3F0213EDF}" name="Windows"/>
+          <GROUP id="{35C790F0-FEC3-4848-5058-D7A0E1F11785}" name="Wrapper">
+            <FILE id="pxxVai" name="SwapChain.cpp" compile="1" resource="0" file="Source/JVK/Core/Wrapper/SwapChain.cpp"/>
+            <FILE id="blPFY4" name="SwapChain.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/SwapChain.h"/>
+            <FILE id="pxxazP" name="Wrapper.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/Wrapper.h"/>
+          </GROUP>
+          <FILE id="qFCCIf" name="VulkanInstance.cpp" compile="1" resource="0"
+                file="Source/JVK/Core/VulkanInstance.cpp"/>
+          <FILE id="T5bfuL" name="VulkanInstance.h" compile="0" resource="0"
+                file="Source/JVK/Core/VulkanInstance.h"/>
         </GROUP>
-        <GROUP id="{B5BF0DAA-C072-111A-E009-D14063DFB146}" name="MacOS">
-          <FILE id="hrKDPO" name="NSViewGenerator.h" compile="0" resource="0"
-                file="Source/JVK/MacOS/NSViewGenerator.h"/>
-          <FILE id="zj01qA" name="NSViewGenerator.mm" compile="1" resource="0"
-                file="Source/JVK/MacOS/NSViewGenerator.mm"/>
-          <FILE id="R5RVJ4" name="VulkanNSViewComponent.cpp" compile="1" resource="0"
-                file="Source/JVK/MacOS/VulkanNSViewComponent.cpp"/>
-          <FILE id="wvUdsi" name="VulkanNSViewComponent.h" compile="0" resource="0"
-                file="Source/JVK/MacOS/VulkanNSViewComponent.h"/>
+        <GROUP id="{FD349013-6E6F-ABDB-991C-3DD9F0A2B33A}" name="ECS">
+          <GROUP id="{C82E4467-B411-B083-707A-63CE5C87EA89}" name="Components">
+            <FILE id="EF9BZ4" name="MeshRenderer.h" compile="0" resource="0" file="Source/JVK/ECS/Components/MeshRenderer.h"/>
+            <FILE id="rkQGpC" name="Texture.h" compile="0" resource="0" file="Source/JVK/ECS/Components/Texture.h"/>
+          </GROUP>
+          <GROUP id="{797660CC-BC60-0655-0EE3-1BC0EB887ACE}" name="Objects">
+            <FILE id="RaenTH" name="Camera.h" compile="0" resource="0" file="Source/JVK/ECS/Objects/Camera.h"/>
+            <FILE id="yV2rju" name="Mesh.h" compile="0" resource="0" file="Source/JVK/ECS/Objects/Mesh.h"/>
+            <FILE id="RRncZj" name="Object.h" compile="0" resource="0" file="Source/JVK/ECS/Objects/Object.h"/>
+          </GROUP>
+          <FILE id="uyi6Hx" name="ECS.h" compile="0" resource="0" file="Source/JVK/ECS/ECS.h"/>
         </GROUP>
-        <GROUP id="{3402F529-7E1A-2FB7-025D-2D71EEDDC981}" name="Windows"/>
-        <FILE id="d5SD2y" name="NSViewGenerator.h" compile="0" resource="0"
-              file="Source/JVK/NSViewGenerator.h"/>
-        <FILE id="FCjw8X" name="VulkanComponent.cpp" compile="1" resource="0"
+        <FILE id="J4OZL4" name="JVK.h" compile="0" resource="0" file="Source/JVK/JVK.h"/>
+        <FILE id="IPogUu" name="VulkanComponent.cpp" compile="1" resource="0"
               file="Source/JVK/VulkanComponent.cpp"/>
-        <FILE id="GeSa5C" name="VulkanComponent.h" compile="0" resource="0"
+        <FILE id="CSpubd" name="VulkanComponent.h" compile="0" resource="0"
               file="Source/JVK/VulkanComponent.h"/>
-        <FILE id="LOQ9ba" name="VulkanInstance.cpp" compile="1" resource="0"
-              file="Source/JVK/VulkanInstance.cpp"/>
-        <FILE id="J98kuz" name="VulkanInstance.h" compile="0" resource="0"
-              file="Source/JVK/VulkanInstance.h"/>
       </GROUP>
       <GROUP id="{11870FC5-2FA3-DB22-DDCB-A91AD7911B9E}" name="Shaders">
         <FILE id="t5wWku" name="basic.frag" compile="0" resource="1" file="Source/Shaders/basic.frag"/>
@@ -43,6 +57,7 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="XRPzm6" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
       <FILE id="XUy1La" name="TriangleDemo.h" compile="0" resource="0" file="Source/TriangleDemo.h"/>
+      <FILE id="zb0thK" name="SceneDemo.h" compile="0" resource="0" file="Source/SceneDemo.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

@@ -12,7 +12,7 @@
 #include "../VulkanInstance.h"
 #include "NSViewGenerator.h"
 
-namespace jvk
+namespace jvk::core::macos
 {
 
 class VulkanNSViewComponent : public VulkanInstance, public juce::NSViewComponent
@@ -26,4 +26,4 @@ private:
     NSViewGenerator nsView;
 };
 
-}
+} // jvk::core::macos

@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #include "NSViewGenerator.h"
 
-namespace jvk
+namespace jvk::core::macos
 {
 
 NSViewGenerator::NSViewGenerator()
@@ -55,4 +55,4 @@ void NSViewGenerator::release()
     }
 }
 
-} // jvk
+} // jvk::core::macos

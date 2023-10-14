@@ -10,7 +10,7 @@
 
 #include "SwapChain.h"
 
-namespace jvk
+namespace jvk::core
 {
 
 SwapChainSupportDetails SwapChain::querySwapChainSupport(VkPhysicalDevice device)
@@ -233,4 +233,4 @@ SwapChain::~SwapChain()
     vkDestroySwapchainKHR(info.device, swapChain, nullptr);
 }
 
-} // jvk
+} // jvk::core

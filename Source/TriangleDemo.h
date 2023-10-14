@@ -9,14 +9,20 @@
 */
 
 #pragma once
-#include "JVK/VulkanComponent.h"
+#include "JVK/JVK.h"
+
+struct Vertex
+{
+    glm::vec3 position;
+    glm::vec4 color;
+};
 
 class TriangleDemo : public jvk::VulkanComponent
 {
 public:
     TriangleDemo()
     {
-        std::vector<jvk::Vertex> vertices
+        std::vector<Vertex> vertices
         {
             {{ 0.0f,  0.5f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}},// Top vertex
             {{-0.5f, -0.5f, 0.0f}, {0.0f, 1.0f, 0.0f, 1.0f}},// Bottom left vertex
@@ -40,7 +46,7 @@ public:
         VkMemoryAllocateInfo allocInfo = {};
         allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
         allocInfo.allocationSize = memRequirements.size;
-        allocInfo.memoryTypeIndex = jvk::findMemoryType(physicalDevice, memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+        allocInfo.memoryTypeIndex = jvk::core::findMemoryType(physicalDevice, memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
         
         if (vkAllocateMemory(device, &allocInfo, nullptr, &vertexBufferMemory) != VK_SUCCESS)
         {

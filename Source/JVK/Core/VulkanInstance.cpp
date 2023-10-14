@@ -11,7 +11,7 @@
 #include "VulkanInstance.h"
 #include <fstream>
 
-namespace jvk
+namespace jvk::core
 {
 
 void VulkanInstance::initializeVulkan()
@@ -453,7 +453,6 @@ void VulkanInstance::createCommandPool()
 
 void VulkanInstance::createCommandBuffers()
 {
-    DBG("Creating Command Buffers...");
     commandBuffers.resize(swapChain->getNumImages());
     VkCommandBufferAllocateInfo allocInfo = {};
     allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
@@ -463,49 +462,6 @@ void VulkanInstance::createCommandBuffers()
     
     if (vkAllocateCommandBuffers(device, &allocInfo, commandBuffers.data()) != VK_SUCCESS)
         DBG("Failed to allocate command buffers!");
-    
-    for (size_t i = 0; i < commandBuffers.size(); i++)
-    {
-        DBG("Creating Command Buffer " << i << "...");
-        VkCommandBufferBeginInfo beginInfo = {};
-        beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
-        beginInfo.flags = 0; // Optional
-        beginInfo.pInheritanceInfo = nullptr; // Optional
-        
-        if (vkBeginCommandBuffer(commandBuffers[i], &beginInfo) != VK_SUCCESS)
-            DBG("Failed to begin recording command buffer!");
-        
-        // Beginning the render pass
-        VkRenderPassBeginInfo renderPassInfo = {};
-        renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-        renderPassInfo.renderPass = renderPass;
-        renderPassInfo.framebuffer = swapChain->getFrameBuffer(i);
-        renderPassInfo.renderArea.offset = {0, 0};
-        renderPassInfo.renderArea.extent = swapChain->getExtent();
-        
-        // Here, you'll typically set clear values for color and depth attachments.
-        std::array<VkClearValue, 1> clearValues = {}; // Only 1 clear value as we're not using depth or stencil for now
-        clearValues[0].color = {{0.0f, 0.0f, 1.0f, 1.0f}}; // Clearing to blue color as an example
-        
-        renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
-        renderPassInfo.pClearValues = clearValues.data();
-        
-        vkCmdBeginRenderPass(commandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
-        
-        // Binding the graphics pipeline
-        vkCmdBindPipeline(commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipeline);
-        
-        // TODO: Bind your vertex buffers, index buffers, descriptor sets, etc.
-        // and then issue draw calls like vkCmdDraw or vkCmdDrawIndexed.
-        
-        vkCmdEndRenderPass(commandBuffers[i]);
-        
-        if (vkEndCommandBuffer(commandBuffers[i]) == VK_SUCCESS)
-            DBG("Created Command Buffer " << i << "!");
-        else
-            DBG("Failed to Create Command Buffer " << i << "!");
-    }
-    
 }
 
 
@@ -666,4 +622,4 @@ void VulkanInstance::release()
     vkDestroyInstance(instance, nullptr);
 }
 
-} // jvk
+} // jvk::core

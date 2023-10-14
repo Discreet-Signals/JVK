@@ -10,16 +10,10 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include "Wrapper/SwapChain.h"
+#include "Wrapper/Wrapper.h"
 
-namespace jvk
+namespace jvk::core
 {
-
-struct Vertex
-{
-    glm::vec3 position;
-    glm::vec4 color;
-};
 
 class VulkanInstance
 {
@@ -98,4 +92,4 @@ protected:
     
 };
 
-} // jvk
+} // jvk::core
