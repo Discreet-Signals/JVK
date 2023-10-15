@@ -84,7 +84,7 @@ SwapChain::SwapChain(SwapChainInfo sc_info) : info(sc_info)
         createInfo.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;
     
     createInfo.preTransform = swapChainSupport.capabilities.currentTransform;
-    createInfo.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
+    createInfo.compositeAlpha = VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR;
     createInfo.presentMode = presentMode;
     createInfo.clipped = VK_TRUE;
     

@@ -39,6 +39,8 @@ void* NSViewGenerator::create()
         view.wantsLayer = YES;
         view.layer = [CAMetalLayer layer];
     }
+    view.layer.opaque = NO;
+    view.layer.backgroundColor = CGColorGetConstantColor(kCGColorClear);
     [view retain];
     ptr = (void*)view;
     return (void*)view;

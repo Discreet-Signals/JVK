@@ -22,7 +22,7 @@ public:
     virtual ~VulkanInstance() { };
     
 protected:
-    virtual void render(VkCommandBuffer& commandBuffer) { };
+    virtual void renderComponents(VkCommandBuffer& commandBuffer) { };
     
     virtual std::vector<const char*> getExtensions() { return {}; };
     virtual void createSurface() { };
@@ -83,7 +83,7 @@ protected:
     uint32_t presentQueueFamilyIndex = UINT32_MAX;  // Initialized to an invalid index
     
     // Other required members
-    juce::Colour clearColor { juce::Colours::black };
+    juce::Colour clearColor { juce::Colours::transparentBlack };
     size_t totalFrames = 0;
     size_t currentFrame = 0; // For keeping track of the current frame in flight
     std::atomic<int> width { 800 };

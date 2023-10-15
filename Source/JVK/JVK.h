@@ -16,14 +16,15 @@
 #include <glm/glm.hpp>
 
 // Core
-#include "core/Wrapper/Wrapper.h"
-#include "core/VulkanInstance.h"
+#include "Core/Wrapper/Wrapper.h"
+#include "Core/VulkanInstance.h"
 #if JUCE_MAC
-#include "core/MacOS/NSViewGenerator.h"
-#include "core/MacOS/VulkanNSViewComponent.h"
-#endif
-#if JUCE_WINDOWS
+#include "Core/MacOS/NSViewGenerator.h"
+#include "Core/MacOS/VulkanNSViewComponent.h"
+#elif JUCE_WINDOWS
 // TODO: WINDOWS SUPPRT
+#else
+#error "JVK: Unsupported Platform!"
 #endif
 
 // ECS

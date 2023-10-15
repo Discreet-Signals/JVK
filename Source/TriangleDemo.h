@@ -20,7 +20,10 @@ struct Vertex
 class TriangleDemo : public jvk::VulkanComponent
 {
 public:
-    TriangleDemo()
+    TriangleDemo() { }
+    ~TriangleDemo() { }
+private:
+    void addedToRenderer(const jvk::VulkanRenderer& renderer) override
     {
         std::vector<Vertex> vertices
         {
@@ -34,40 +37,38 @@ public:
         bufferInfo.usage = VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
         bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
         
-        if (vkCreateBuffer(device, &bufferInfo, nullptr, &vertexBuffer) != VK_SUCCESS)
+        if (vkCreateBuffer(renderer.getDevice(), &bufferInfo, nullptr, &vertexBuffer) != VK_SUCCESS)
         {
             DBG("failed to create vertex buffer!");
             return;
         }
         
         VkMemoryRequirements memRequirements;
-        vkGetBufferMemoryRequirements(device, vertexBuffer, &memRequirements);
+        vkGetBufferMemoryRequirements(renderer.getDevice(), vertexBuffer, &memRequirements);
         
         VkMemoryAllocateInfo allocInfo = {};
         allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
         allocInfo.allocationSize = memRequirements.size;
-        allocInfo.memoryTypeIndex = jvk::core::findMemoryType(physicalDevice, memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+        allocInfo.memoryTypeIndex = jvk::core::findMemoryType(renderer.getPhysicalDevice(), memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
         
-        if (vkAllocateMemory(device, &allocInfo, nullptr, &vertexBufferMemory) != VK_SUCCESS)
+        if (vkAllocateMemory(renderer.getDevice(), &allocInfo, nullptr, &vertexBufferMemory) != VK_SUCCESS)
         {
             DBG("failed to allocate vertex buffer memory!");
             return;
         }
         
-        vkBindBufferMemory(device, vertexBuffer, vertexBufferMemory, 0);
+        vkBindBufferMemory(renderer.getDevice(), vertexBuffer, vertexBufferMemory, 0);
         
         void* data;
-        vkMapMemory(device, vertexBufferMemory, 0, bufferInfo.size, 0, &data);
+        vkMapMemory(renderer.getDevice(), vertexBufferMemory, 0, bufferInfo.size, 0, &data);
         memcpy(data, vertices.data(), (size_t)bufferInfo.size);
-        vkUnmapMemory(device, vertexBufferMemory);
+        vkUnmapMemory(renderer.getDevice(), vertexBufferMemory);
     }
-    
-    ~TriangleDemo()
+    void removedFromRenderer(const jvk::VulkanRenderer& renderer) override
     {
-        vkDestroyBuffer(device, vertexBuffer, nullptr);
-        vkFreeMemory(device, vertexBufferMemory, nullptr);
+        vkDestroyBuffer(renderer.getDevice(), vertexBuffer, nullptr);
+        vkFreeMemory(renderer.getDevice(), vertexBufferMemory, nullptr);
     }
-private:
     void render(VkCommandBuffer &commandBuffer) override
     {
         VkDeviceSize offsets[] = {0};
