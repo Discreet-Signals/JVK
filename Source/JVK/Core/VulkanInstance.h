@@ -60,8 +60,7 @@ protected:
     
     // Graphics pipeline components
     VkRenderPass renderPass;
-    VkPipelineLayout pipelineLayout;
-    VkPipeline graphicsPipeline;
+    std::unique_ptr<Pipeline> defaultPipeline;
     VkViewport viewport = {};
     VkRect2D scissor = {};
     

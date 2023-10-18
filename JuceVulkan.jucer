@@ -18,6 +18,8 @@
           </GROUP>
           <GROUP id="{B08F4538-CC85-195D-C472-6DF3F0213EDF}" name="Windows"/>
           <GROUP id="{35C790F0-FEC3-4848-5058-D7A0E1F11785}" name="Wrapper">
+            <FILE id="WSC1CS" name="Pipeline.cpp" compile="1" resource="0" file="Source/JVK/Core/Wrapper/Pipeline.cpp"/>
+            <FILE id="Aax4rc" name="Pipeline.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/Pipeline.h"/>
             <FILE id="pxxVai" name="SwapChain.cpp" compile="1" resource="0" file="Source/JVK/Core/Wrapper/SwapChain.cpp"/>
             <FILE id="blPFY4" name="SwapChain.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/SwapChain.h"/>
             <FILE id="pxxazP" name="Wrapper.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/Wrapper.h"/>

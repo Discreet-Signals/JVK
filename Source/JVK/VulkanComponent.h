@@ -78,9 +78,10 @@ public:
     VulkanRenderer();
     virtual ~VulkanRenderer() { };
     
-    VkPipeline getDefaultPipeline() const { return graphicsPipeline; }
+    VkPipeline getDefaultPipeline() const { return defaultPipeline->getInternal(); }
     VkPhysicalDevice getPhysicalDevice() const { return physicalDevice; }
     VkDevice getDevice() const { return device; }
+    VkRenderPass getRenderPass() const { return renderPass; }
     
     void setBounds(juce::Rectangle<int> new_bounds) { OSWindowComponent::setBounds(new_bounds); }
     void setBounds(int x, int y, int width, int height) { OSWindowComponent::setBounds({x,y,width,height}); }
