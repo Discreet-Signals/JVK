@@ -20,11 +20,20 @@ struct Vertex
 class TriangleDemo : public jvk::VulkanComponent
 {
 public:
-    TriangleDemo() { }
+    TriangleDemo(bool use_custom_shader) : useCustomShader(use_custom_shader) { }
     ~TriangleDemo() { }
 private:
     void addedToRenderer(const jvk::VulkanRenderer& renderer) override
     {
+        if (useCustomShader)
+        {
+            jvk::Shaders::ShaderGroup shaderGroup;
+            shaderGroup.addShader(VK_SHADER_STAGE_VERTEX_BIT, BinaryData::basic_vert_spv, BinaryData::basic_vert_spvSize);
+            shaderGroup.addShader(VK_SHADER_STAGE_FRAGMENT_BIT, BinaryData::invert_frag_spv, BinaryData::invert_frag_spvSize);
+            pipeline = std::make_unique<jvk::Pipeline>(renderer.getDevice(), renderer.getRenderPass(), std::move(shaderGroup));
+            setPipeline(pipeline->getInternal());
+        }
+        
         std::vector<Vertex> vertices
         {
             {{ 0.0f,  0.5f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}},// Top vertex
@@ -78,6 +87,8 @@ private:
         vkCmdDraw(commandBuffer, 3, 1, 0, 0);
     }
     
+    bool useCustomShader;
+    std::unique_ptr<jvk::Pipeline> pipeline;
     VkBuffer vertexBuffer;
     VkDeviceMemory vertexBufferMemory;
 };

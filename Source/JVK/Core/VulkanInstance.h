@@ -44,10 +44,6 @@ protected:
     void execute();
     void release();
     
-    // Utility
-    std::vector<char> readFile(const std::string& filename);
-    VkShaderModule createShaderModule(const std::vector<char>& code);
-    
     // Vulkan core components
     VkInstance instance;
     VkDebugUtilsMessengerEXT debugMessenger; // if using validation layers

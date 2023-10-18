@@ -9,36 +9,34 @@
 */
 
 #pragma once
-#include <JuceHeader.h>
 #include <vulkan/vulkan.h>
 #include <glm/glm.hpp>
+#include "Shader.h"
 
 namespace jvk
 {
 
-struct Shader
-{
-    VkShaderStageFlagBits stage;
-    std::vector<char> code;
-};
-struct ShaderStage
-{
-    juce::String name;
-    std::vector<Shader> shaders;
-};
-
 class Pipeline
 {
 public:
-    Pipeline(VkDevice vk_device, VkRenderPass render_pass, const ShaderStage& shader_stage);
+    template <typename SG>
+    Pipeline(VkDevice vk_device, VkRenderPass render_pass, SG&& shader_group) :
+        device(vk_device),
+        renderPass(render_pass),
+        shaderGroup(std::forward<SG>(shader_group))
+    {
+        create();
+    }
     ~Pipeline();
     
     VkPipeline getInternal() const { return graphicsPipeline; }
 private:
     VkShaderModule createShaderModule(VkDevice device, const std::vector<char>& code);
+    void create();
     
     VkDevice device;
-    Shader shader;
+    VkRenderPass renderPass;
+    Shaders::ShaderGroup shaderGroup;
     VkPipelineLayout pipelineLayout;
     VkPipeline graphicsPipeline;
 };

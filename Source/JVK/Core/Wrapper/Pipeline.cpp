@@ -28,14 +28,14 @@ VkShaderModule Pipeline::createShaderModule(VkDevice device, const std::vector<c
     return shaderModule;
 }
 
-Pipeline::Pipeline(VkDevice vk_device, VkRenderPass render_pass, const ShaderStage& shader_stage) : device(vk_device)
+void Pipeline::create()
 {
     // 1. Create Shaders
     std::vector<VkShaderModule> shaders;
     std::vector<VkPipelineShaderStageCreateInfo> shaderInfos;
-    for (int i = 0; i < shader_stage.shaders.size(); i++)
+    for (int i = 0; i < shaderGroup.shaders.size(); i++)
     {
-        const Shader& shader = shader_stage.shaders[i];
+        const Shaders::Shader& shader = shaderGroup.shaders[i];
         shaders.push_back(createShaderModule(device, shader.code));
         VkPipelineShaderStageCreateInfo shaderInfo = {};
         shaderInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -156,7 +156,7 @@ Pipeline::Pipeline(VkDevice vk_device, VkRenderPass render_pass, const ShaderSta
     pipelineInfo.pDepthStencilState = &depthStencil;
     pipelineInfo.pColorBlendState = &colorBlending;
     pipelineInfo.layout = pipelineLayout;
-    pipelineInfo.renderPass = render_pass;
+    pipelineInfo.renderPass = renderPass;
     pipelineInfo.subpass = 0;
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
     

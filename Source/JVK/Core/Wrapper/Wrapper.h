@@ -12,4 +12,5 @@
 
 #pragma once
 #include "SwapChain.h"
+#include "Shader.h"
 #include "Pipeline.h"

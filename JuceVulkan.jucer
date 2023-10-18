@@ -20,6 +20,7 @@
           <GROUP id="{35C790F0-FEC3-4848-5058-D7A0E1F11785}" name="Wrapper">
             <FILE id="WSC1CS" name="Pipeline.cpp" compile="1" resource="0" file="Source/JVK/Core/Wrapper/Pipeline.cpp"/>
             <FILE id="Aax4rc" name="Pipeline.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/Pipeline.h"/>
+            <FILE id="YT9E3j" name="Shader.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/Shader.h"/>
             <FILE id="pxxVai" name="SwapChain.cpp" compile="1" resource="0" file="Source/JVK/Core/Wrapper/SwapChain.cpp"/>
             <FILE id="blPFY4" name="SwapChain.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/SwapChain.h"/>
             <FILE id="pxxazP" name="Wrapper.h" compile="0" resource="0" file="Source/JVK/Core/Wrapper/Wrapper.h"/>
@@ -48,8 +49,11 @@
               file="Source/JVK/VulkanComponent.h"/>
       </GROUP>
       <GROUP id="{11870FC5-2FA3-DB22-DDCB-A91AD7911B9E}" name="Shaders">
+        <FILE id="PvwXpO" name="basic.frag.spv" compile="0" resource="1" file="Source/Shaders/basic.frag.spv"/>
+        <FILE id="FYdFd7" name="basic.vert.spv" compile="0" resource="1" file="Source/Shaders/basic.vert.spv"/>
         <FILE id="t5wWku" name="basic.frag" compile="0" resource="1" file="Source/Shaders/basic.frag"/>
         <FILE id="NVsT1Q" name="basic.vert" compile="0" resource="1" file="Source/Shaders/basic.vert"/>
+        <FILE id="wBcIKj" name="invert.frag.spv" compile="0" resource="1" file="Source/Shaders/invert.frag.spv"/>
       </GROUP>
       <FILE id="fkFomT" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

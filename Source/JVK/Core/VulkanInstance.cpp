@@ -9,7 +9,6 @@
 */
 
 #include "VulkanInstance.h"
-#include <fstream>
 
 namespace jvk::core
 {
@@ -239,52 +238,12 @@ void VulkanInstance::createRenderPass()
     swapChain->createFrameBuffers(renderPass);
 }
 
-std::vector<char> VulkanInstance::readFile(const std::string& filename)
-{
-    std::ifstream file(filename, std::ios::ate | std::ios::binary);
-    
-    if (!file.is_open()) {
-        throw std::runtime_error("Failed to open file: " + filename);
-    }
-    
-    size_t fileSize = (size_t)file.tellg();
-    std::vector<char> buffer(fileSize);
-    
-    file.seekg(0);
-    file.read(buffer.data(), fileSize);
-    
-    file.close();
-    
-    return buffer;
-}
-
-VkShaderModule VulkanInstance::createShaderModule(const std::vector<char>& code)
-{
-    VkShaderModuleCreateInfo createInfo = {};
-    createInfo.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
-    createInfo.codeSize = code.size();
-    createInfo.pCode = reinterpret_cast<const uint32_t*>(code.data());
-    
-    VkShaderModule shaderModule;
-    if (vkCreateShaderModule(device, &createInfo, nullptr, &shaderModule) != VK_SUCCESS) {
-        throw std::runtime_error("Failed to create shader module!");
-    }
-    
-    return shaderModule;
-}
-
 void VulkanInstance::createGraphicsPipeline()
 {
-    // 1. Load and compile shaders
-    auto vertShaderCode = readFile("/Users/gavin/Documents/GitHub/JuceVulkan/Source/Shaders/basic.vert.spv");
-    auto fragShaderCode = readFile("/Users/gavin/Documents/GitHub/JuceVulkan/Source/Shaders/basic.frag.spv");
-    
-    ShaderStage defaultShaderStage;
-    defaultShaderStage.name = "default";
-    defaultShaderStage.shaders = {
-        { VK_SHADER_STAGE_VERTEX_BIT, vertShaderCode },
-        { VK_SHADER_STAGE_FRAGMENT_BIT, fragShaderCode } };
-    defaultPipeline = std::make_unique<Pipeline>(device, renderPass, defaultShaderStage);
+    Shaders::ShaderGroup defaultShaderGroup;
+    defaultShaderGroup.addShader(VK_SHADER_STAGE_VERTEX_BIT, BinaryData::basic_vert_spv, BinaryData::basic_vert_spvSize);
+    defaultShaderGroup.addShader(VK_SHADER_STAGE_FRAGMENT_BIT, BinaryData::basic_frag_spv, BinaryData::basic_frag_spvSize);
+    defaultPipeline = std::make_unique<Pipeline>(device, renderPass, std::move(defaultShaderGroup));
 }
 
 void VulkanInstance::createCommandPool()

@@ -11,7 +11,7 @@
 
 //==============================================================================
 JuceVulkanAudioProcessorEditor::JuceVulkanAudioProcessorEditor (JuceVulkanAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+    : AudioProcessorEditor (&p), audioProcessor (p), tlTriangle(false), brTriangle(true)
 {
     addAndMakeVisible(jvkRenderer);
     jvkRenderer.addChildComponentWithDefaultPipeline(&tlTriangle);
