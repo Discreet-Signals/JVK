@@ -8,23 +8,26 @@
 
 namespace BinaryData
 {
+    extern const char*   basic_frag;
+    const int            basic_fragSize = 189;
+
     extern const char*   basic_frag_spv;
     const int            basic_frag_spvSize = 452;
+
+    extern const char*   basic_vert;
+    const int            basic_vertSize = 299;
 
     extern const char*   basic_vert_spv;
     const int            basic_vert_spvSize = 1052;
 
-    extern const char*   basic_frag;
-    const int            basic_fragSize = 197;
-
-    extern const char*   basic_vert;
-    const int            basic_vertSize = 310;
+    extern const char*   invert_frag;
+    const int            invert_fragSize = 236;
 
     extern const char*   invert_frag_spv;
     const int            invert_frag_spvSize = 732;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 5;
+    const int namedResourceListSize = 6;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

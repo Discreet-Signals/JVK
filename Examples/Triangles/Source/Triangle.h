@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    TriangleDemo.h
+    Triangle.h
     Created: 11 Oct 2023 6:16:47pm
     Author:  Gavin
 
@@ -9,7 +9,7 @@
 */
 
 #pragma once
-#include "JVK/JVK.h"
+#include "../../../JVK/JVK.h"
 
 struct Vertex
 {

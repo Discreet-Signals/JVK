@@ -11,6 +11,7 @@
 #pragma once
 #include <JuceHeader.h>
 #include "Wrapper/Wrapper.h"
+#include "DefaultShaders.h"
 
 namespace jvk::core
 {

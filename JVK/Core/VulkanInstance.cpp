@@ -241,8 +241,12 @@ void VulkanInstance::createRenderPass()
 void VulkanInstance::createGraphicsPipeline()
 {
     Shaders::ShaderGroup defaultShaderGroup;
-    defaultShaderGroup.addShader(VK_SHADER_STAGE_VERTEX_BIT, BinaryData::basic_vert_spv, BinaryData::basic_vert_spvSize);
-    defaultShaderGroup.addShader(VK_SHADER_STAGE_FRAGMENT_BIT, BinaryData::basic_frag_spv, BinaryData::basic_frag_spvSize);
+    defaultShaderGroup.addShader(VK_SHADER_STAGE_VERTEX_BIT,
+                                 Shaders::DefaultShaders::BasicShader::basic_vert_spv,
+                                 Shaders::DefaultShaders::BasicShader::basic_vert_spvSize);
+    defaultShaderGroup.addShader(VK_SHADER_STAGE_FRAGMENT_BIT,
+                                 Shaders::DefaultShaders::BasicShader::basic_frag_spv,
+                                 Shaders::DefaultShaders::BasicShader::basic_frag_spvSize);
     defaultPipeline = std::make_unique<Pipeline>(device, renderPass, std::move(defaultShaderGroup));
 }
 
