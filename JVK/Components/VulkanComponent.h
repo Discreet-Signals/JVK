@@ -11,9 +11,9 @@
 #pragma once
 #include <JuceHeader.h>
 #if JUCE_MAC
-#include "Core/MacOS/VulkanNSViewComponent.h"
+#include "../Core/MacOS/VulkanNSViewComponent.h"
 #elif JUCE_WINDOWS
-#include "Core/Windows/VulkanHWNDComponent.h"
+#include "../Core/Windows/VulkanHWNDComponent.h"
 #endif
 
 namespace jvk

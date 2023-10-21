@@ -30,6 +30,7 @@ public:
     ~Pipeline();
     
     VkPipeline getInternal() const { return graphicsPipeline; }
+    VkPipelineLayout getLayout() const { return pipelineLayout; }
 private:
     VkShaderModule createShaderModule(VkDevice device, const std::vector<char>& code);
     void create();

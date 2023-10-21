@@ -73,7 +73,7 @@
                frameworkSearchPaths="/Users/gavin/VulkanSDK/1.3.261.1/macOS/Frameworks"
                embeddedFrameworks="/Users/gavin/VulkanSDK/1.3.261.1/macOS/Frameworks/vulkan.framework"
                externalLibraries="MoltenVK" extraLinkerFlags="-rpath @loader_path/../Frameworks"
-               postbuildCommand="if [ &quot;$FULL_PRODUCT_NAME&quot; != &quot;libjvkTriangles.a&quot; ]; then&#10;    cp &quot;/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS/libMoltenVK.dylib&quot; &quot;$CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks&quot;&#10;fi">
+               postbuildCommand="if [[ ! &quot;$FULL_PRODUCT_NAME&quot; == *.a ]]; then&#10;    cp &quot;/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS/libMoltenVK.dylib&quot; &quot;$CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks&quot;&#10;fi">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" headerPath="/Users/gavin/VulkanSDK/1.3.261.1/macOS/include"
                        libraryPath="/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS"

@@ -31,5 +31,5 @@
 #include "ECS/ECS.h"
 #include "ECS/Objects/Camera.h"
 
-#include "VulkanComponent.h"
-
+#include "Components/Components.h"
+#include "FIFO.h"

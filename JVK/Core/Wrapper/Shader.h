@@ -56,27 +56,76 @@ class ShaderGroup
 {
 public:
     ShaderGroup() { }
+    
     template<typename S>
-    void addShader(S&& shader) { shaders.push_back(std::forward<S>(shader)); }
-    void addShader(VkShaderStageFlagBits stage, std::vector<char> code)
+    ShaderGroup withShader(S&& shader)
+    {
+        ShaderGroup newGroup(*this);
+        newGroup.shaders.push_back(std::forward<S>(shader));
+        return newGroup;
+    }
+    ShaderGroup withShader(VkShaderStageFlagBits stage, std::vector<char> code)
+    {
+        ShaderGroup newGroup(*this);
+        Shader shader = { stage, code };
+        newGroup.shaders.push_back(std::move(shader));
+        return newGroup;
+    }
+    ShaderGroup withShader(VkShaderStageFlagBits stage, const char* binary_data_spv, const int binary_data_spvSize)
+    {
+        ShaderGroup newGroup(*this);
+        Shader shader = { stage, std::vector<char>(binary_data_spv, binary_data_spv + binary_data_spvSize) };
+        newGroup.shaders.push_back(std::move(shader));
+        return newGroup;
+    }
+    ShaderGroup withShader(VkShaderStageFlagBits stage, const juce::String& file)
+    {
+        ShaderGroup newGroup(*this);
+        Shader shader = { stage, readFile(file.toStdString()) };
+        newGroup.shaders.push_back(std::move(shader));
+        return newGroup;
+    }
+    ShaderGroup withDescriptorSetLayout(VkDescriptorSetLayout layout)
+    {
+        ShaderGroup newGroup(*this);
+        newGroup.descriptorSetLayouts.push_back(layout);
+        return newGroup;
+    }
+    
+    template<typename S>
+    ShaderGroup& addShader(S&& shader)
+    {
+        shaders.push_back(std::forward<S>(shader));
+        return *this;
+    }
+    ShaderGroup& addShader(VkShaderStageFlagBits stage, std::vector<char> code)
     {
         Shader shader = { stage, code };
         shaders.push_back(std::move(shader));
+        return *this;
     }
-    void addShader(VkShaderStageFlagBits stage, const char* binary_data_spv, const int binary_data_spvSize)
+    ShaderGroup& addShader(VkShaderStageFlagBits stage, const char* binary_data_spv, const int binary_data_spvSize)
     {
         Shader shader = { stage, std::vector<char>(binary_data_spv, binary_data_spv + binary_data_spvSize) };
         shaders.push_back(std::move(shader));
+        return *this;
     }
-    void addShader(VkShaderStageFlagBits stage, const juce::String& file)
+    ShaderGroup& addShader(VkShaderStageFlagBits stage, const juce::String& file)
     {
         Shader shader = { stage, readFile(file.toStdString()) };
         shaders.push_back(std::move(shader));
+        return *this;
+    }
+    ShaderGroup& addDescriptorSetLayout(VkDescriptorSetLayout layout)
+    {
+        descriptorSetLayouts.push_back(layout);
+        return *this;
     }
 
 private:
     friend class ::jvk::Pipeline;
     std::vector<Shader> shaders;
+    std::vector<VkDescriptorSetLayout> descriptorSetLayouts;
 };
 
 }} // jvk::Shader

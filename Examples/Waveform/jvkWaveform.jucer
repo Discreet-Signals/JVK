@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="piLhAx" name="jvkWaveform" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="EXRGLu" name="jvkWaveform">
+    <GROUP id="{58D33F91-9080-BEBF-D360-AB27C6962BC4}" name="Source">
+      <FILE id="i36kVb" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="hF8O5k" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="BRLWFA" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="u2Y4Aj" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="GohSVV" name="Waveform.h" compile="0" resource="0" file="Source/Waveform.h"/>
+      <FILE id="S5nyAx" name="Waveform.frag" compile="0" resource="1" file="Source/Waveform.frag"/>
+      <FILE id="yOsNin" name="Waveform.frag.spv" compile="0" resource="1"
+            file="Source/Waveform.frag.spv"/>
+    </GROUP>
+    <GROUP id="{3F9AF5E4-BA18-5E69-CC1E-9FF7A203CFB7}" name="JVK">
+      <GROUP id="{01A7B0A3-592B-F700-1491-B6950E70398E}" name="Components">
+        <FILE id="d2ASkG" name="Components.h" compile="0" resource="0" file="../../JVK/Components/Components.h"/>
+        <FILE id="lB41Fa" name="ShaderComponent.h" compile="0" resource="0"
+              file="../../JVK/Components/ShaderComponent.h"/>
+        <FILE id="IqaDja" name="VulkanComponent.cpp" compile="1" resource="0"
+              file="../../JVK/Components/VulkanComponent.cpp"/>
+        <FILE id="nt0mWR" name="VulkanComponent.h" compile="0" resource="0"
+              file="../../JVK/Components/VulkanComponent.h"/>
+      </GROUP>
+      <GROUP id="{BEF4ED51-32AA-42BB-38BB-C0E513D9D193}" name="Core">
+        <GROUP id="{6111EF25-9014-B8A6-4ED6-0F0A8087CC9C}" name="MacOS">
+          <FILE id="V3wIiU" name="NSViewGenerator.h" compile="0" resource="0"
+                file="../../JVK/Core/MacOS/NSViewGenerator.h"/>
+          <FILE id="ExcPYH" name="NSViewGenerator.mm" compile="1" resource="0"
+                file="../../JVK/Core/MacOS/NSViewGenerator.mm"/>
+          <FILE id="IIAfUl" name="VulkanNSViewComponent.cpp" compile="1" resource="0"
+                file="../../JVK/Core/MacOS/VulkanNSViewComponent.cpp"/>
+          <FILE id="Hc0P40" name="VulkanNSViewComponent.h" compile="0" resource="0"
+                file="../../JVK/Core/MacOS/VulkanNSViewComponent.h"/>
+        </GROUP>
+        <GROUP id="{CF79DB49-894A-8318-4ABA-0F8D5CD1D3AD}" name="Wrapper">
+          <FILE id="GUC5uN" name="Pipeline.cpp" compile="1" resource="0" file="../../JVK/Core/Wrapper/Pipeline.cpp"/>
+          <FILE id="RH6dr4" name="Pipeline.h" compile="0" resource="0" file="../../JVK/Core/Wrapper/Pipeline.h"/>
+          <FILE id="Klq8Gq" name="Shader.h" compile="0" resource="0" file="../../JVK/Core/Wrapper/Shader.h"/>
+          <FILE id="IUPaWs" name="SwapChain.cpp" compile="1" resource="0" file="../../JVK/Core/Wrapper/SwapChain.cpp"/>
+          <FILE id="PIA7eN" name="SwapChain.h" compile="0" resource="0" file="../../JVK/Core/Wrapper/SwapChain.h"/>
+          <FILE id="RmH03z" name="Wrapper.h" compile="0" resource="0" file="../../JVK/Core/Wrapper/Wrapper.h"/>
+        </GROUP>
+        <FILE id="PVW7IN" name="DefaultShaders.h" compile="0" resource="0"
+              file="../../JVK/Core/DefaultShaders.h"/>
+        <FILE id="jbvWo0" name="VulkanInstance.cpp" compile="1" resource="0"
+              file="../../JVK/Core/VulkanInstance.cpp"/>
+        <FILE id="VMLAmH" name="VulkanInstance.h" compile="0" resource="0"
+              file="../../JVK/Core/VulkanInstance.h"/>
+      </GROUP>
+      <GROUP id="{952F4685-3E9E-8EB1-AD8B-A7738C1F9DF8}" name="ECS">
+        <GROUP id="{120486AD-7BAC-F4FC-9EA3-6938082E7FB6}" name="Components">
+          <FILE id="lIFZ8J" name="MeshRenderer.h" compile="0" resource="0" file="../../JVK/ECS/Components/MeshRenderer.h"/>
+          <FILE id="ILSOt4" name="Texture.h" compile="0" resource="0" file="../../JVK/ECS/Components/Texture.h"/>
+        </GROUP>
+        <GROUP id="{4870B36F-2955-87BA-CFF1-56CC20E2570B}" name="Objects">
+          <FILE id="Xu86Ak" name="Camera.h" compile="0" resource="0" file="../../JVK/ECS/Objects/Camera.h"/>
+          <FILE id="m64T2T" name="Mesh.h" compile="0" resource="0" file="../../JVK/ECS/Objects/Mesh.h"/>
+          <FILE id="tTN7zF" name="Object.h" compile="0" resource="0" file="../../JVK/ECS/Objects/Object.h"/>
+        </GROUP>
+        <FILE id="LXwkrM" name="ECS.h" compile="0" resource="0" file="../../JVK/ECS/ECS.h"/>
+      </GROUP>
+      <FILE id="x3doNa" name="JVK.h" compile="0" resource="0" file="../../JVK/JVK.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraDefs="VK_USE_PLATFORM_MACOS_MVK"
+               extraLinkerFlags="-rpath @loader_path/../Frameworks" externalLibraries="MoltenVK"
+               embeddedFrameworks="/Users/gavin/VulkanSDK/1.3.261.1/macOS/Frameworks/vulkan.framework"
+               frameworkSearchPaths="/Users/gavin/VulkanSDK/1.3.261.1/macOS/Frameworks"
+               postbuildCommand="if [[ ! &quot;$FULL_PRODUCT_NAME&quot; == *.a ]]; then&#10;    cp &quot;/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS/libMoltenVK.dylib&quot; &quot;$CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks&quot;&#10;fi">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="jvkWaveform" headerPath="/Users/gavin/VulkanSDK/1.3.261.1/macOS/include"
+                       libraryPath="/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="jvkWaveform" headerPath="/Users/gavin/VulkanSDK/1.3.261.1/macOS/include"
+                       libraryPath="/Users/gavin/VulkanSDK/1.3.261.1/MoltenVK/dylib/macOS"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+</JUCERPROJECT>

@@ -26,11 +26,7 @@ void VulkanComponent::addChildComponent(VulkanComponent* child, bool sort_childr
         DBG("jdk::VulkanComponent - Cannot add VulkanRenderer as child component!");
         return;
     }
-    if (child->getPipeline() == VK_NULL_HANDLE)
-    {
-        DBG("jdk::VulkanComponent - Child must have valid pipeline before adding!");
-        return;
-    }
+
     for (VulkanComponent* c : children)
         if (child == c)
             return;
@@ -62,6 +58,9 @@ void VulkanComponent::setRenderer(VulkanRenderer* new_renderer)
     
     renderer = new_renderer;
     addedToRenderer(*renderer);
+    
+    if (getPipeline() == VK_NULL_HANDLE)
+        DBG("jdk::VulkanComponent - Child added with invalid pipeline!");
     
     for (VulkanComponent* child : children)
         child->setRenderer(new_renderer);
