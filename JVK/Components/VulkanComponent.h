@@ -67,7 +67,7 @@ private:
 #if JUCE_MAC
 using OSWindowComponent = core::macos::VulkanNSViewComponent;
 #elif JUCE_WINDOWS
-using OSWindowComponent = core::windows::VulkanHWMDComponent,
+using OSWindowComponent = core::windows::VulkanHWNDComponent;
 #endif
 class VulkanRenderer :
     private VulkanComponent,

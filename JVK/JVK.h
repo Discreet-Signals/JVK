@@ -1,14 +1,20 @@
-/*
-  ==============================================================================
+/*******************************************************************************
+ BEGIN_JUCE_MODULE_DECLARATION
 
-    JVK.h
-    Created: 14 Oct 2023 4:41:43pm
-    Author:  Gavin
+ ID:               JVK
+ vendor:           Discreet Signals
+ version:          1.0
+ name:             jvk
+ description:      Vulkan Integration for JUCE
+ website:          https://github.com/Discreet-Signals/JVK
+ dependencies:     juce_core
+ 
+ END_JUCE_MODULE_DECLARATION
 
-  ==============================================================================
-*/
+ *******************************************************************************/
 
 #pragma once
+#include <juce_core/juce_core.h>
 
 // Dependencies
 #include <JuceHeader.h>
@@ -22,7 +28,7 @@
 #include "Core/MacOS/NSViewGenerator.h"
 #include "Core/MacOS/VulkanNSViewComponent.h"
 #elif JUCE_WINDOWS
-// TODO: WINDOWS SUPPRT
+#include "Core/Windows/VulkanHWNDComponent.h"
 #else
 #error "JVK: Unsupported Platform!"
 #endif
