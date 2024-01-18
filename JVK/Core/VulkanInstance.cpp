@@ -350,14 +350,13 @@ void VulkanInstance::submitCommandBuffer(int i)
 
 void VulkanInstance::checkForResize()
 {
-    /*
     if (!windowResized.load())
         return;
     if (width.load() <= 0 || height.load() <= 0)
         return;
     
     windowResized.store(false);
-    createSwapChain();*/
+    createSwapChain();
 }
 
 void VulkanInstance::execute()
