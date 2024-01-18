@@ -9,10 +9,10 @@
 namespace BinaryData
 {
     extern const char*   Waveform_frag;
-    const int            Waveform_fragSize = 932;
+    const int            Waveform_fragSize = 979;
 
     extern const char*   Waveform_frag_spv;
-    const int            Waveform_frag_spvSize = 2240;
+    const int            Waveform_frag_spvSize = 2328;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 2;
