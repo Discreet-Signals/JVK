@@ -10,7 +10,7 @@
 
 #pragma once
 #include "../VulkanInstance.h"
-#include <windows.h>
+#include "HWNDGenerator.h"
 
 namespace jvk::core::windows
 {
@@ -23,7 +23,7 @@ private:
     std::vector<const char*> getExtensions() override;
     void createSurface() override;
     void resized() final override;
-    HWND hwnd;
+    HWNDGenerator hwnd;
 };
 
 } // jvk::core::windows

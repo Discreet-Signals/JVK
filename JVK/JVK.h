@@ -28,6 +28,7 @@
 #include "Core/MacOS/NSViewGenerator.h"
 #include "Core/MacOS/VulkanNSViewComponent.h"
 #elif JUCE_WINDOWS
+#include "Core/Windows/HWNDGenerator.h"
 #include "Core/Windows/VulkanHWNDComponent.h"
 #else
 #error "JVK: Unsupported Platform!"
