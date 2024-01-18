@@ -52,7 +52,7 @@ struct SwapChainInfo
 class SwapChain
 {
 public:
-    SwapChain(SwapChainInfo sc_info);
+    SwapChain(SwapChainInfo sc_info, VkSwapchainKHR previous);
     ~SwapChain();
     
     VkSwapchainKHR getInternal() const { return swapChain; };

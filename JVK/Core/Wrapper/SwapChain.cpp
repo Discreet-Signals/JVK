@@ -52,7 +52,7 @@ VkExtent2D SwapChain::chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilit
                  static_cast<uint32_t>(std::fmax(capabilities.minImageExtent.height, std::fmin(capabilities.maxImageExtent.height, info.size.y))) };
 }
 
-SwapChain::SwapChain(SwapChainInfo sc_info) : info(sc_info)
+SwapChain::SwapChain(SwapChainInfo sc_info, VkSwapchainKHR previous) : info(sc_info)
 {
     SwapChainSupportDetails swapChainSupport = querySwapChainSupport(info.physicalDevice );
     VkSurfaceFormatKHR surfaceFormat = chooseSwapSurfaceFormat(swapChainSupport.formats);
@@ -89,7 +89,7 @@ SwapChain::SwapChain(SwapChainInfo sc_info) : info(sc_info)
     createInfo.clipped = VK_TRUE;
     
     // If we're recreating the swap chain, reference the old one (useful for window resizing, etc.)
-    createInfo.oldSwapchain = VK_NULL_HANDLE; // No old swap chain in this instance.
+    createInfo.oldSwapchain = previous; // No old swap chain in this instance.
     
     vkCreateSwapchainKHR(info.device, &createInfo, nullptr, &swapChain);
     

@@ -180,7 +180,10 @@ void VulkanInstance::createSwapChain()
     info.graphicsQueueFamilyIndex = graphicsQueueFamilyIndex;
     info.presentQueueFamilyIndex = presentQueueFamilyIndex;
     info.renderPass = renderPass;
-    swapChain = std::make_unique<SwapChain>(info);
+    VkSwapchainKHR previous = swapChain ? swapChain->getInternal() : VK_NULL_HANDLE;
+    std::unique_ptr<SwapChain> next = std::make_unique<SwapChain>(info, previous);
+    swapChain = std::move(next);
+    //swapChain = std::make_unique<SwapChain>(info, previous);
     
     if (renderPass)
         createCommandBuffers();
@@ -347,13 +350,14 @@ void VulkanInstance::submitCommandBuffer(int i)
 
 void VulkanInstance::checkForResize()
 {
+    /*
     if (!windowResized.load())
         return;
     if (width.load() <= 0 || height.load() <= 0)
         return;
     
     windowResized.store(false);
-    createSwapChain();
+    createSwapChain();*/
 }
 
 void VulkanInstance::execute()
@@ -409,9 +413,8 @@ void VulkanInstance::execute()
     presentInfo.pSwapchains = swapChains;
     presentInfo.pImageIndices = &imageIndex;
     
-    result = vkQueuePresentKHR(presentQueue, &presentInfo);
-    if (result != VK_SUCCESS)
-        DBG("failed to present swap chain image!");
+    if (vkQueuePresentKHR(presentQueue, &presentInfo) == VK_ERROR_OUT_OF_DATE_KHR)
+        createSwapChain();
     
     totalFrames++;
     currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
