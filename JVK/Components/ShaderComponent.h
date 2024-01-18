@@ -239,7 +239,6 @@ private:
     
     void render(VkCommandBuffer &commandBuffer) final override
     {
-        device = VK_NULL_HANDLE;
         VkDeviceSize offsets[] = {0};
         
         sendDataToShader();
