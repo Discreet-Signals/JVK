@@ -23,7 +23,7 @@ private:
     std::vector<const char*> getExtensions() override;
     void createSurface() override;
     void resized() final override;
-    HWNDGenerator hwnd;
+    HWNDGenerator hwndGen;
 };
 
 } // jvk::core::windows

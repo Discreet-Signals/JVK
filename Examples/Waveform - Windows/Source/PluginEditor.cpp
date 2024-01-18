@@ -27,7 +27,7 @@ JvkWaveformAudioProcessorEditor::~JvkWaveformAudioProcessorEditor()
 //==============================================================================
 void JvkWaveformAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    g.fillAll (juce::Colours::black);
+    g.fillAll (juce::Colours::green);
 }
 
 void JvkWaveformAudioProcessorEditor::resized()

@@ -21,7 +21,7 @@ public:
     HWNDGenerator() : hwnd(nullptr) { }
     ~HWNDGenerator() { release(); }
     
-    bool isValid() { return hwnd != nullptr; }
+    HWND& get() { return hwnd; }
     HWND& create()
     {
         DBG("Creating HWND...");
@@ -38,19 +38,35 @@ public:
 
         if (!RegisterClassEx(&wc))
             DBG("Failed to Create Window!");
-
-        hwnd = CreateWindowEx(
-            WS_EX_LAYERED | WS_EX_TRANSPARENT,  // Extended window style (for transparency)
+        hwnd = CreateWindow(
             className,                          // Window class name (or use your custom window class)
-            "JVK Window",                       // Window name
+            className,                          // Window name
             WS_POPUP,                           // Window style (no title bar)
             0, 0, 800, 600,                     // Initial position and size
             nullptr, nullptr,                   // Parent window and menu handle
             GetModuleHandle(nullptr),           // Application instance
             nullptr                             // Additional application data
         );
-        DBG("Created HWND!");
+        /*
+        hwnd = CreateWindowEx(
+            WS_EX_LAYERED | WS_EX_TRANSPARENT,  // Extended window style (for transparency)
+            className,                          // Window class name (or use your custom window class)
+            className,                          // Window name
+            WS_POPUP,                           // Window style (no title bar)
+            0, 0, 800, 600,                     // Initial position and size
+            nullptr, nullptr,                   // Parent window and menu handle
+            GetModuleHandle(nullptr),           // Application instance
+            nullptr                             // Additional application data
+        );*/
+        if (hwnd)
+            DBG("Created HWND!");
+        else
+            DBG("Failed To Create Window");
         return hwnd;
+    }
+    void setSize(int width, int height)
+    {
+        SetWindowPos(hwnd, NULL, 0, 0, width, height, SWP_NOACTIVATE | SWP_NOZORDER | SWP_NOOWNERZORDER | SWP_NOMOVE);
     }
     void release() 
     { 

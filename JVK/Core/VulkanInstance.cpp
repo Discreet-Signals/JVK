@@ -361,12 +361,10 @@ void VulkanInstance::checkForResize()
 
 void VulkanInstance::execute()
 {
-    //DBG("Rendering: " << totalFrames);
     vkWaitForFences(device, 1, &inFlightFences[currentFrame], VK_TRUE, UINT64_MAX);
     
     uint32_t imageIndex;
     VkResult result = vkAcquireNextImageKHR(device, swapChain->getInternal(), UINT64_MAX, imageAvailableSemaphores[currentFrame], VK_NULL_HANDLE, &imageIndex);
-    
     if (result == VK_ERROR_OUT_OF_DATE_KHR)
         return;
 
@@ -412,7 +410,8 @@ void VulkanInstance::execute()
     presentInfo.pSwapchains = swapChains;
     presentInfo.pImageIndices = &imageIndex;
     
-    if (vkQueuePresentKHR(presentQueue, &presentInfo) == VK_ERROR_OUT_OF_DATE_KHR)
+    result = vkQueuePresentKHR(presentQueue, &presentInfo);
+    if (result == VK_ERROR_OUT_OF_DATE_KHR)
         createSwapChain();
     
     totalFrames++;

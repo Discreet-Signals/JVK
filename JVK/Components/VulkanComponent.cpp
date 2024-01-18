@@ -101,7 +101,7 @@ VulkanRenderer::VulkanRenderer()
     renderer = this;
     initializeVulkan();
     setPipeline(getDefaultPipeline());
-    startTimerHz(60);
+    startTimerHz(30);
 }
 
 } // jvk
