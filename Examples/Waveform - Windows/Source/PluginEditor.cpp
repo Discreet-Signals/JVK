@@ -13,15 +13,15 @@
 JvkWaveformAudioProcessorEditor::JvkWaveformAudioProcessorEditor (JvkWaveformAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
-    //audioProcessor.jvkWaveform = &jvkWaveform;
-    //addAndMakeVisible(jvkRenderer);
-    //jvkRenderer.addChildComponent(&jvkWaveform);
+    audioProcessor.jvkWaveform = &jvkWaveform;
+    addAndMakeVisible(jvkRenderer);
+    jvkRenderer.addChildComponent(&jvkWaveform);
     setSize (1024, 256);
 }
 
 JvkWaveformAudioProcessorEditor::~JvkWaveformAudioProcessorEditor()
 {
-    //audioProcessor.jvkWaveform = nullptr;
+    audioProcessor.jvkWaveform = nullptr;
 }
 
 //==============================================================================
@@ -32,6 +32,6 @@ void JvkWaveformAudioProcessorEditor::paint (juce::Graphics& g)
 
 void JvkWaveformAudioProcessorEditor::resized()
 {
-    //jvkRenderer.setBounds(getBounds());
-    //jvkWaveform.setBounds(getBounds().toFloat());
+    jvkRenderer.setBounds(getBounds());
+    jvkWaveform.setBounds(getBounds().toFloat());
 }
