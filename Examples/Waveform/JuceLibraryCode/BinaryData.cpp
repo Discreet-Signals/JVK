@@ -11,42 +11,42 @@ namespace BinaryData
 
 //================== Waveform.frag ==================
 static const unsigned char temp_binary_data_0[] =
-"#version 450\n"
-"\n"
-"layout(location = 0) in vec4 fragColor;  // Input color from vertex shader\n"
-"layout(location = 0) out vec4 outColor;  // Output color\n"
-"\n"
-"layout(binding = 0) buffer BufferType\n"
-"{\n"
-"    float data[];\n"
-"};\n"
-"\n"
-"float softMax(float x, float edge, float softness) {\n"
-"    if (x > edge + softness) return x; // Above the soft transition range\n"
-"    return mix(edge, x, smoothstep(edge, edge + softness, x));\n"
-"}\n"
-"\n"
-"void main()\n"
-"{\n"
-"    float value = max(0.0, data[int(fragColor.r * 1023.999999)]);\n"
-"    float pixel = 1.0 - fragColor.g;\n"
-"    pixel = abs(2.0 * pixel - 1.0);\n"
-"    bool waveform = pixel <= value;\n"
-"    float dist = value - pixel;\n"
-"\n"
-"    vec3 background = vec3(0.1, 0.1, 0.1);\n"
-"    vec3 col = vec3(0.0);\n"
-"    float alpha = 0.0;\n"
-"    if (waveform)\n"
-"    {\n"
-"        dist = 1.0 - dist;\n"
-"        dist = 0.2 + 0.8 * cos((dist * dist) * 0.5 * 3.14159);\n"
-"        col = smoothstep(background, vec3(1.0), vec3(0.825, 1.1, 0.675) * dist);\n"
-"        alpha = dist;\n"
-"    }\n"
-"    \n"
-"    outColor = vec4(col, alpha);\n"
-"}\n";
+"#version 450\r\n"
+"\r\n"
+"layout(location = 0) in vec4 fragColor;  // Input color from vertex shader\r\n"
+"layout(location = 0) out vec4 outColor;  // Output color\r\n"
+"\r\n"
+"layout(binding = 0) buffer BufferType\r\n"
+"{\r\n"
+"    float data[];\r\n"
+"};\r\n"
+"\r\n"
+"float softMax(float x, float edge, float softness) {\r\n"
+"    if (x > edge + softness) return x; // Above the soft transition range\r\n"
+"    return mix(edge, x, smoothstep(edge, edge + softness, x));\r\n"
+"}\r\n"
+"\r\n"
+"void main()\r\n"
+"{\r\n"
+"    float value = max(0.0, data[int(fragColor.r * 1023.999999)]);\r\n"
+"    float pixel = 1.0 - fragColor.g;\r\n"
+"    pixel = abs(2.0 * pixel - 1.0);\r\n"
+"    bool waveform = pixel <= value;\r\n"
+"    float dist = value - pixel;\r\n"
+"\r\n"
+"    vec3 background = vec3(0.1, 0.1, 0.1);\r\n"
+"    vec3 col = vec3(0.0);\r\n"
+"    float alpha = 0.0;\r\n"
+"    if (waveform)\r\n"
+"    {\r\n"
+"        dist = 1.0 - dist;\r\n"
+"        dist = 0.2 + 0.8 * cos((dist * dist) * 0.5 * 3.14159);\r\n"
+"        col = smoothstep(background, vec3(1.0), vec3(0.825, 1.1, 0.675) * dist);\r\n"
+"        alpha = dist;\r\n"
+"    }\r\n"
+"    \r\n"
+"    outColor = vec4(col, alpha);\r\n"
+"}\r\n";
 
 const char* Waveform_frag = (const char*) temp_binary_data_0;
 
@@ -89,7 +89,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
 
     switch (hash)
     {
-        case 0x67130194:  numBytes = 979; return Waveform_frag;
+        case 0x67130194:  numBytes = 1015; return Waveform_frag;
         case 0xbbfd048e:  numBytes = 2328; return Waveform_frag_spv;
         default: break;
     }

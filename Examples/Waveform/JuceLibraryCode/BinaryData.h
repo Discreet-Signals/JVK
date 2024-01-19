@@ -9,7 +9,7 @@
 namespace BinaryData
 {
     extern const char*   Waveform_frag;
-    const int            Waveform_fragSize = 979;
+    const int            Waveform_fragSize = 1015;
 
     extern const char*   Waveform_frag_spv;
     const int            Waveform_frag_spvSize = 2328;
