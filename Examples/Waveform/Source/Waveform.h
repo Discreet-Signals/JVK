@@ -9,7 +9,6 @@
 */
 
 #pragma once
-#include "../../../JVK/JVK.h"
 #define SIZE 1024
 
 class WaveformDemo : public jvk::ShaderComponent
