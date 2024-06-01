@@ -1,6 +1,6 @@
 # JVK
-Vulkan integration for JUCE plugins.
-<img width="734" alt="Screenshot 2023-10-15 at 7 47 59 PM" src="https://github.com/ZGgof1999/JVK/assets/9949963/ebb0b266-1a13-44ed-915c-b1e1c8e46d7b">
+Vulkan integration for JUCE plugins.\
+<img width="734" alt="Screenshot 2023-10-15 at 7 47 59 PM" src="https://github.com/ZGgof1999/JVK/assets/9949963/ebb0b266-1a13-44ed-915c-b1e1c8e46d7b">\
 Background and text rendered with JUCE.
 Triangles rendered with transparency, from two seperate components added to single vulkan renderer component
  
@@ -8,8 +8,8 @@ Triangles rendered with transparency, from two seperate components added to sing
 If not using the projucer, just use JVK as any other juce module!
  
 ### Projucer
-1. Install Vulkan (Not Bundled)
-2. Ensure VULKAN\_SDK environment is set
+1. Install Vulkan (Not Bundled)\
+2. Ensure VULKAN\_SDK environment is set\
 3. run 'sh include_vulkan.sh [path/to/project] [optional VULKAN_SDK_PATH]'
  
 This will process your .jucer to add the JVK module, add necessary search paths, and link necesarry external libraries. If you add a new exporter, just run the script again!
@@ -20,12 +20,12 @@ This will process your .jucer to add the JVK module, add necessary search paths,
 This module is IN DEV, and most likely not stable enough for production software. Use at your own risk. If you love how well it works already, and want to use it to make your plugins look incredible while running fast, please contribute! Theres lot's of error handling needed to be done in jvk::core to ensure it runs smoothly on all devices.
  
 ## Features
-Windows and MacOS!
-Integrates seamlessly into juce::Component
-Bundled Plug 'N Play Components (ex. jvk::ShaderComponent - give it a shader, push data, awesome audio visualisations!)
-Transparent Native OS Windows to not obscure parent juce::Component (HWND not supported yet)
-[In Dev] Entity Component System for 3D rendering scenes with keyframe animations (I am porting from my juce openGL ECS rendering engine)
+Windows and MacOS!\
+Integrates seamlessly into juce::Component\
+Bundled Plug 'N Play Components (ex. jvk::ShaderComponent - give it a shader, push data, awesome audio visualisations!)\
+Transparent Native OS Windows to not obscure parent juce::Component (HWND not supported yet)\
+[In Dev] Entity Component System for 3D rendering scenes with keyframe animations (I am porting from my juce openGL ECS rendering engine)\
 
 ## Examples
-See jvkTriangles for your first triangle to say hello to the world!
-See jvkWaveform for how to render audio visualizers via shaders!
+See jvkTriangles for your first triangle to say hello to the world!\
+See jvkWaveform for how to render audio visualizers via shaders!\
